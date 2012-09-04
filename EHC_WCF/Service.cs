@@ -27,38 +27,13 @@ namespace EHC_WCF
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "getCase/{Case}")]
-        EHC_CaseSelect[] getCase(string Case);
-
-        [OperationContract]
-        [WebInvoke(Method = "GET",
-            ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            UriTemplate = "getResult/{Result}")]
-        EHC_CaseResult[] getResult(string Result);
+        EHC_Case[] getCase(string Case);
     }
-
-
-
     [DataContract]
-    public class EHC_CaseSelect
+    public class EHC_Case
     {
         [DataMember]
         public string Name { get; set; }
 
-    }
-    public class EHC_CaseResult
-    { 
-        [DataMember]
-        public string Name { get; set; }
-        [DataMember]
-        public string Date { get; set; }
-        [DataMember]
-        public string Type { get; set; }
-        [DataMember]
-        public string BPsys { get; set; }
-        [DataMember]
-        public string BPDia { get; set; }
-        [DataMember]
-        public string BPPluse { get; set; }
     }
 }
